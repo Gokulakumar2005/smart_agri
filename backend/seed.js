@@ -17,12 +17,14 @@ const connectDB = async () => {
   await mongoose.connect(mongoUri);
 };
 
-const seed = async () => {
-  await connectDB();
-
+const seedDefaultData = async () => {
   const cropsData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'crops.json'), 'utf8'));
-  await Crop.deleteMany({});
-  await Crop.insertMany(cropsData);
+
+  const existingCropCount = await Crop.countDocuments();
+  if (existingCropCount === 0) {
+    await Crop.insertMany(cropsData);
+    console.log('Default crop data inserted.');
+  }
 
   const existingAdmin = await User.findOne({ email: adminEmail.toLowerCase() });
   if (!existingAdmin) {
@@ -34,13 +36,22 @@ const seed = async () => {
       role: 'admin',
       farmingPractice: 'conventional',
     });
+    console.log('Default admin user created.');
   }
+};
 
+const seed = async () => {
+  await connectDB();
+  await seedDefaultData();
   console.log('Seed complete. Default admin user created or updated.');
   process.exit(0);
 };
 
-seed().catch((error) => {
-  console.error('Seeding error:', error);
-  process.exit(1);
-});
+if (require.main === module) {
+  seed().catch((error) => {
+    console.error('Seeding error:', error);
+    process.exit(1);
+  });
+}
+
+module.exports = { seedDefaultData, seed };

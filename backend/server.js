@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const dotenv = require('dotenv');
 const { connectDB } = require('./config/db');
 const { notFound, errorHandler } = require('./middleware/errorHandler');
+const { seedDefaultData } = require('./seed');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
 const cropRoutes = require('./routes/cropRoutes');
@@ -39,7 +40,8 @@ app.use(notFound);
 app.use(errorHandler);
 
 connectDB()
-  .then(() => {
+  .then(async () => {
+    await seedDefaultData();
     app.listen(PORT, () => {
       console.log(`Server running on http://localhost:${PORT}`);
     });

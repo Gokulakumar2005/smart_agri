@@ -2,6 +2,8 @@ const Crop = require('../models/Crop');
 const CultivationPlan = require('../models/CultivationPlan');
 const { buildCultivationPlan } = require('../services/planGenerator');
 
+const escapeRegExp = (value = '') => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
 const generatePlan = async (req, res, next) => {
   try {
     const { cropName, plantingDate, soilType, irrigationMethod, farmingPractice } = req.body;
@@ -10,9 +12,17 @@ const generatePlan = async (req, res, next) => {
       return res.status(400).json({ message: 'Crop name, planting date and soil type are required' });
     }
 
-    const crop = await Crop.findOne({ name: cropName, isActive: true });
+    const normalizedCropName = String(cropName).trim();
+    const crop = await Crop.findOne({
+      isActive: true,
+      $or: [
+        { name: normalizedCropName },
+        { name: { $regex: new RegExp(`^${escapeRegExp(normalizedCropName)}$`, 'i') } },
+      ],
+    });
+
     if (!crop) {
-      return res.status(404).json({ message: 'Crop not found' });
+      return res.status(404).json({ message: 'Crop not found. Please seed the crop catalog or choose a valid crop.' });
     }
 
     const generatedPlan = buildCultivationPlan(crop, {
