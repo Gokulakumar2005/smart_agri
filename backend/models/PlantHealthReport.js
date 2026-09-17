@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const plantHealthReportSchema = new mongoose.Schema(
   {
@@ -22,4 +22,4 @@ const plantHealthReportSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model('PlantHealthReport', plantHealthReportSchema);
+export default mongoose.model('PlantHealthReport', plantHealthReportSchema);

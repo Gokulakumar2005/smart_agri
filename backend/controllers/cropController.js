@@ -1,4 +1,4 @@
-const Crop = require('../models/Crop');
+import Crop from '../models/Crop.js';
 
 const getCrops = async (req, res, next) => {
   try {
@@ -21,4 +21,4 @@ const getCropById = async (req, res, next) => {
   }
 };
 
-module.exports = { getCrops, getCropById };
+export { getCrops, getCropById };

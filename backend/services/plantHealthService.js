@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from 'axios';
 
 const mockDiagnoses = [
   {
@@ -97,4 +97,4 @@ const analyzePlantHealth = async (imageUrl) => {
   }
 };
 
-module.exports = { analyzePlantHealth };
+export { analyzePlantHealth };

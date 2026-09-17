@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const fertilizerScheduleSchema = new mongoose.Schema(
   {
@@ -56,4 +56,4 @@ const cropSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model('Crop', cropSchema);
+export default mongoose.model('Crop', cropSchema);

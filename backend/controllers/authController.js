@@ -1,6 +1,6 @@
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import User from '../models/User.js';
 
 const generateToken = (user) =>
   jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET || 'smartagri-secret', { expiresIn: '7d' });
@@ -103,4 +103,4 @@ const refreshToken = async (req, res, next) => {
   }
 };
 
-module.exports = { register, login, refreshToken };
+export { register, login, refreshToken };

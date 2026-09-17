@@ -1,11 +1,11 @@
-const express = require('express');
-const { uploadPlantHealthImage, listReports } = require('../controllers/plantHealthController');
-const { protect } = require('../middleware/auth');
-const upload = require('../middleware/upload');
+import express from 'express';
+import { uploadPlantHealthImage, listReports } from '../controllers/plantHealthController.js';
+import { protect } from '../middleware/auth.js';
+import upload from '../middleware/upload.js';
 
 const router = express.Router();
 
 router.post('/', protect, upload.single('image'), uploadPlantHealthImage);
 router.get('/', protect, listReports);
 
-module.exports = router;
+export default router;

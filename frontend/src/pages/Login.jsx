@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useLanguage } from '../context/LanguageContext';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const { login } = useAuth();
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
@@ -20,28 +23,30 @@ const Login = () => {
         navigate('/dashboard');
       }
     } catch (err) {
-      setError(err.response?.data?.message || 'Login failed');
+      const message = err.response?.data?.message || 'Login failed';
+      setError(message);
+      toast.error(message);
     }
   };
 
   return (
     <div className="mx-auto mt-10 max-w-md rounded-2xl border border-stone-200 bg-white p-6 shadow-soft">
-      <h1 className="mb-2 text-2xl font-bold text-forest">Welcome back</h1>
-      <p className="mb-6 text-stone-600">Sign in to continue managing your crop plan.</p>
+      <h1 className="mb-2 text-2xl font-bold text-forest">{t('welcomeBack')}</h1>
+      <p className="mb-6 text-stone-600">{t('signInText')}</p>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="mb-1 block text-sm font-medium text-stone-700">Email</label>
+          <label className="mb-1 block text-sm font-medium text-stone-700">{t('email')}</label>
           <input className="w-full rounded-lg border border-stone-300 p-3" name="email" type="email" value={form.email} onChange={handleChange} required />
         </div>
         <div>
-          <label className="mb-1 block text-sm font-medium text-stone-700">Password</label>
+          <label className="mb-1 block text-sm font-medium text-stone-700">{t('password')}</label>
           <input className="w-full rounded-lg border border-stone-300 p-3" name="password" type="password" value={form.password} onChange={handleChange} required />
         </div>
         {error && <p className="text-sm text-red-600">{error}</p>}
-        <button type="submit" className="w-full rounded-lg bg-forest px-4 py-3 font-semibold text-white">Login</button>
+        <button type="submit" className="w-full rounded-lg bg-forest px-4 py-3 font-semibold text-white">{t('login')}</button>
       </form>
       <p className="mt-4 text-sm text-stone-600">
-        New here? <Link to="/register" className="font-semibold text-leaf">Create an account</Link>
+        {t('newHere')} <Link to="/register" className="font-semibold text-leaf">{t('createAccount')}</Link>
       </p>
     </div>
   );

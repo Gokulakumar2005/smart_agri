@@ -1,5 +1,5 @@
-const PlantHealthReport = require('../models/PlantHealthReport');
-const { analyzePlantHealth } = require('../services/plantHealthService');
+import PlantHealthReport from '../models/PlantHealthReport.js';
+import { analyzePlantHealth } from '../services/plantHealthService.js';
 
 const uploadPlantHealthImage = async (req, res, next) => {
   try {
@@ -42,4 +42,4 @@ const listReports = async (req, res, next) => {
   }
 };
 
-module.exports = { uploadPlantHealthImage, listReports };
+export { uploadPlantHealthImage, listReports };

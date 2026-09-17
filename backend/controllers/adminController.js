@@ -1,7 +1,7 @@
-const Crop = require('../models/Crop');
-const User = require('../models/User');
-const CultivationPlan = require('../models/CultivationPlan');
-const PlantHealthReport = require('../models/PlantHealthReport');
+import Crop from '../models/Crop.js';
+import User from '../models/User.js';
+import CultivationPlan from '../models/CultivationPlan.js';
+import PlantHealthReport from '../models/PlantHealthReport.js';
 
 const getCrops = async (req, res, next) => {
   try {
@@ -137,7 +137,7 @@ const getAnalytics = async (req, res, next) => {
   }
 };
 
-module.exports = {
+export {
   getCrops,
   createCrop,
   updateCrop,

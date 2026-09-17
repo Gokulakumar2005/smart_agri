@@ -1,18 +1,22 @@
-const path = require('path');
-const express = require('express');
-const cors = require('cors');
-const morgan = require('morgan');
-const dotenv = require('dotenv');
-const { connectDB } = require('./config/db');
-const { notFound, errorHandler } = require('./middleware/errorHandler');
-const { seedDefaultData } = require('./seed');
-const authRoutes = require('./routes/authRoutes');
-const userRoutes = require('./routes/userRoutes');
-const cropRoutes = require('./routes/cropRoutes');
-const planRoutes = require('./routes/planRoutes');
-const weatherRoutes = require('./routes/weatherRoutes');
-const plantHealthRoutes = require('./routes/plantHealthRoutes');
-const adminRoutes = require('./routes/adminRoutes');
+import path from 'path';
+import { fileURLToPath } from 'url';
+import express from 'express';
+import cors from 'cors';
+import morgan from 'morgan';
+import dotenv from 'dotenv';
+import { connectDB } from './config/db.js';
+import { notFound, errorHandler } from './middleware/errorHandler.js';
+import { seedDefaultData } from './seed.js';
+import authRoutes from './routes/authRoutes.js';
+import userRoutes from './routes/userRoutes.js';
+import cropRoutes from './routes/cropRoutes.js';
+import planRoutes from './routes/planRoutes.js';
+import weatherRoutes from './routes/weatherRoutes.js';
+import plantHealthRoutes from './routes/plantHealthRoutes.js';
+import adminRoutes from './routes/adminRoutes.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
