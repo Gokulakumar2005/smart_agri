@@ -1,0 +1,99 @@
+[
+  {
+    "name": "Paddy",
+    "suitableSoilTypes": ["Clay loam", "Loam", "Silt loam"],
+    "growthDurationDays": 120,
+    "landPreparation": [
+      "Level the field and puddle the soil to retain standing water.",
+      "Prepare a fine seedbed and ensure drainage channels are stable.",
+      "Apply basal organic manure before transplanting."
+    ],
+    "growthStages": [
+      { "name": "Nursery", "startDay": 1, "endDay": 20, "description": "Seedling preparation and early growth." },
+      { "name": "Transplanting", "startDay": 21, "endDay": 40, "description": "Transplant seedlings and begin field establishment." },
+      { "name": "Tillering", "startDay": 41, "endDay": 80, "description": "Vegetative growth and canopy development." },
+      { "name": "Panicle initiation", "startDay": 81, "endDay": 100, "description": "Reproductive phase and grain formation." },
+      { "name": "Maturity", "startDay": 101, "endDay": 120, "description": "Ripening and preparation for harvest." }
+    ],
+    "fertilizerSchedule": [
+      { "stage": "Nursery", "daysFromPlanting": 10, "nutrient": "Nitrogen", "conventionalInput": "Urea 25 kg/acre", "organicAlternative": "Compost slurry 150 kg/acre", "notes": "Use light nitrogen to encourage healthy seedling establishment." },
+      { "stage": "Transplanting", "daysFromPlanting": 30, "nutrient": "Phosphorus", "conventionalInput": "SSP 40 kg/acre", "organicAlternative": "Rock phosphate 30 kg/acre", "notes": "Promote root establishment and early growth." },
+      { "stage": "Tillering", "daysFromPlanting": 55, "nutrient": "Potassium", "conventionalInput": "MOP 25 kg/acre", "organicAlternative": "Wood ash + compost blend", "notes": "Support plant vigor and water use efficiency." },
+      { "stage": "Panicle initiation", "daysFromPlanting": 90, "nutrient": "Nitrogen", "conventionalInput": "Urea top dress 30 kg/acre", "organicAlternative": "Vermicompost tea 200 L/acre", "notes": "Boost reproductive growth and grain filling." }
+    ],
+    "irrigationSchedule": [
+      { "stage": "Nursery", "daysFromPlanting": 5, "frequency": "Every 2 days", "notes": "Keep nursery bed moist but not flooded" },
+      { "stage": "Tillering", "daysFromPlanting": 35, "frequency": "Every 3 days", "notes": "Maintain shallow standing water" },
+      { "stage": "Maturity", "daysFromPlanting": 95, "frequency": "Every 5 days", "notes": "Reduce irrigation before harvest to improve grain quality" }
+    ],
+    "maintenanceSchedule": [
+      { "stage": "Nursery", "daysFromPlanting": 10, "task": "Check seedling vigor and remove weeds." },
+      { "stage": "Tillering", "daysFromPlanting": 50, "task": "Monitor nutrient deficiency and weed pressure." },
+      { "stage": "Maturity", "daysFromPlanting": 110, "task": "Inspect for lodging and plan harvest timing." }
+    ]
+  },
+  {
+    "name": "Banana",
+    "suitableSoilTypes": ["Loam", "Sandy loam", "Clay loam"],
+    "growthDurationDays": 300,
+    "landPreparation": [
+      "Prepare pits with organic matter and drainage channels.",
+      "Ensure soil is loose and well-drained before planting.",
+      "Apply compost at each planting pit."
+    ],
+    "growthStages": [
+      { "name": "Planting", "startDay": 1, "endDay": 30, "description": "Root establishment and early vegetative growth." },
+      { "name": "Vegetative growth", "startDay": 31, "endDay": 150, "description": "Leaf development and pseudostem formation." },
+      { "name": "Flowering", "startDay": 151, "endDay": 220, "description": "Bunch emergence and reproductive development." },
+      { "name": "Fruit filling", "startDay": 221, "endDay": 300, "description": "Fruit enlargement and maturation." }
+    ],
+    "fertilizerSchedule": [
+      { "stage": "Planting", "daysFromPlanting": 25, "nutrient": "Nitrogen", "conventionalInput": "Urea 60 kg/acre", "organicAlternative": "Compost + neem cake", "notes": "Improve early establishment and shoot growth." },
+      { "stage": "Vegetative growth", "daysFromPlanting": 90, "nutrient": "Potassium", "conventionalInput": "MOP 75 kg/acre", "organicAlternative": "Wood ash + compost", "notes": "Support pseudostem strength and nutrient movement." },
+      { "stage": "Flowering", "daysFromPlanting": 180, "nutrient": "Phosphorus", "conventionalInput": "SSP 50 kg/acre", "organicAlternative": "Bone meal 40 kg/acre", "notes": "Support flower setting and bunch development." },
+      { "stage": "Fruit filling", "daysFromPlanting": 250, "nutrient": "Potassium", "conventionalInput": "Potash 80 kg/acre", "organicAlternative": "Banana peel compost tea", "notes": "Enhance fruit filling and quality." }
+    ],
+    "irrigationSchedule": [
+      { "stage": "Planting", "daysFromPlanting": 10, "frequency": "Every 3 days", "notes": "Keep pit soil moist but not waterlogged" },
+      { "stage": "Vegetative growth", "daysFromPlanting": 75, "frequency": "Every 2 days", "notes": "Sustain leaf and pseudostem growth" },
+      { "stage": "Fruit filling", "daysFromPlanting": 220, "frequency": "Every 4 days", "notes": "Avoid water stress during bunch development" }
+    ],
+    "maintenanceSchedule": [
+      { "stage": "Planting", "daysFromPlanting": 15, "task": "Mulch around the base to retain moisture." },
+      { "stage": "Vegetative growth", "daysFromPlanting": 80, "task": "Remove suckers and monitor for leaf disease." },
+      { "stage": "Flowering", "daysFromPlanting": 175, "task": "Support bunches and ensure adequate wind protection." }
+    ]
+  },
+  {
+    "name": "Tomato",
+    "suitableSoilTypes": ["Loam", "Sandy loam", "Clay loam"],
+    "growthDurationDays": 110,
+    "landPreparation": [
+      "Prepare raised beds and loosen the topsoil well.",
+      "Add compost before transplanting to improve structure.",
+      "Set a stable irrigation line before seedlings are transplanted."
+    ],
+    "growthStages": [
+      { "name": "Nursery", "startDay": 1, "endDay": 25, "description": "Seedling establishment in a protected nursery area." },
+      { "name": "Transplanting", "startDay": 26, "endDay": 45, "description": "Establish root growth after transplanting." },
+      { "name": "Flowering", "startDay": 46, "endDay": 75, "description": "Blossom development and fruit initiation." },
+      { "name": "Fruit setting", "startDay": 76, "endDay": 110, "description": "Fruit enlargement and maturity for harvest." }
+    ],
+    "fertilizerSchedule": [
+      { "stage": "Nursery", "daysFromPlanting": 15, "nutrient": "Nitrogen", "conventionalInput": "Urea 20 kg/acre", "organicAlternative": "Compost tea", "notes": "Encourage vigorous young growth." },
+      { "stage": "Transplanting", "daysFromPlanting": 30, "nutrient": "Phosphorus", "conventionalInput": "SSP 40 kg/acre", "organicAlternative": "Bone meal 30 kg/acre", "notes": "Promote root and stem establishment." },
+      { "stage": "Flowering", "daysFromPlanting": 60, "nutrient": "Potassium", "conventionalInput": "MOP 35 kg/acre", "organicAlternative": "Wood ash + vermicompost", "notes": "Improve flowering and uniform fruit set." },
+      { "stage": "Fruit setting", "daysFromPlanting": 90, "nutrient": "Calcium", "conventionalInput": "Gypsum 25 kg/acre", "organicAlternative": "Eggshell powder + compost", "notes": "Reduce blossom end rot risk." }
+    ],
+    "irrigationSchedule": [
+      { "stage": "Nursery", "daysFromPlanting": 10, "frequency": "Every 2 days", "notes": "Keep seedlings evenly moist" },
+      { "stage": "Flowering", "daysFromPlanting": 45, "frequency": "Every 3 days", "notes": "Avoid moisture stress during flowering" },
+      { "stage": "Fruit setting", "daysFromPlanting": 80, "frequency": "Every 2 days", "notes": "Maintain steady moisture for fruit development" }
+    ],
+    "maintenanceSchedule": [
+      { "stage": "Nursery", "daysFromPlanting": 20, "task": "Thin seedlings and remove weak plants." },
+      { "stage": "Flowering", "daysFromPlanting": 55, "task": "Stake plants and monitor for fungal spots." },
+      { "stage": "Fruit setting", "daysFromPlanting": 85, "task": "Prune excessive foliage and inspect fruit load." }
+    ]
+  }
+]
